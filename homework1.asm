@@ -25,13 +25,14 @@ main:
   syscall
   
 diamond:
-  addi  $sp,$sp,-12
+  addi  $sp,$sp,-16
   sw  $ra, 0($sp)
   sw  $s0, 4($sp)
   sw  $s1, 8($sp)
+  sw  $s2, 12($sp)
   li  $s0, -1         
-  add  $s1,$zero,$a0  #s1是有幾個空白  
-  li  $s2, 1          #s2是有幾個星號
+  add  $s1,$zero,$a0      #s1 is space number  
+  li  $s2, 1              #s2 is star number
   diamondup:  beq $s0,$s1, exitdiamondup
               jal starandspace
               addi  $s1,$s1,-1
@@ -51,7 +52,37 @@ diamond:
   
 triangle:
 trapezoid:
+
 starandspace:
+  addi	$sp, $sp, -16     #space number is $a0, star number is $a1
+	sw		$ra, 12($sp)
+	sw		$s0, 0($sp)
+	sw		$s1, 4($sp)
+	sw		$s2, 8($sp)
+  move	$s1, $a0
+	move	$s2, $a1
+  printspace:   beq		$s1, $zero, exit1
+		            li		$v0, 4
+	            	la		$a0, space
+		            syscall
+		            addi	$s1,$s1,-1
+		            j		printspace
+  exit1:	li		$s2, 0
+  printstar:	beq		$s2, $zero, exit2
+		          li		$v0, 4
+		          la		$a0, star
+		          syscall
+		          addi	$s1, $s1, -1
+		          j		printstar
+  exit2:	li		$v0, 4
+		la		$a0, lf
+		syscall
+		lw		$s0, 0($sp)
+		lw		$s1, 4($sp)
+		lw		$s2, 8($sp)
+		lw		$ra, 12($sp)
+		addi	$sp, $sp, 16
+		jr		$ra
   
 .data
 printout1: .ascliz "Input:\n"
