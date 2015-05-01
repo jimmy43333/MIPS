@@ -162,6 +162,6 @@ starandspace:
 .data
 printout1: .ascliz "Input:\n"
 printout2: .ascliz "Output:\n"
-space:	.ascliz " "
-star:	.ascliz "*"
-lf:	.ascliz "\n"
+space:	.asciiz " "
+star:	.asciiz "*"
+lf:	.asciiz "\n"
