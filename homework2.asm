@@ -2,7 +2,7 @@
   .globl	main
 
 main:
-  li		$v0, 4
+  	li		$v0, 4
 	la		$a0, printout1
 	syscall
 	
@@ -21,19 +21,7 @@ main:
 	li		$v0, 4
 	la		$a0, printout2
 	syscall
-	
-true:	  li		$a0, 1
-false:	li		$v0, 1
-		    syscall
-		    #srl		$s1, $s0, 1
-		    #sll		$s1, $s1, 1
-		    #li		$v0, 1
-		    #add		$a0, $zero, $s1
-		    #syscall
 
-		li		$v0, 10
-		syscall
-		
 	beq		$s1, $zero, true
 	add		$a0, $zero, $s1
 	jal		function
@@ -41,6 +29,17 @@ false:	li		$v0, 1
 	div		$s2, $s7
 	mfhi	$a0
 	j		false
+
+true:	li		$a0, 1
+false:	li		$v0, 1
+	syscall
+	#srl		$s1, $s0, 1
+	#sll		$s1, $s1, 1
+	#li		$v0, 1
+	#add		$a0, $zero, $s1
+	#syscall
+	li		$v0, 10
+	syscall
 	  
 function:     # a0 is B
     addi	$sp, $sp, -20
