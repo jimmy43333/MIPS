@@ -16,7 +16,7 @@ main:
   	add	$a0,$zero,$s1    #s1 is space number
   
   	addi	$t0,$zero,1
-  	beq	$s0, $t0, diamand
+  	beq	$s0, $t0, diamond
   	addi	$t0,$zero,2
   	beq	$s0, $t0, triangle
   	addi	$t0,$zero,3
