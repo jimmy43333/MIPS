@@ -48,7 +48,7 @@ diamond:
               		addi  	$s2,$s2,2
               		j 	diamondup
         exitdiamondup:  addi  	$s1,$s1,2
-        		addi  	$s2,$s2,-2
+        		addi  	$s2,$s2,-4
         diamonddown:	beq 	$s0,$s2, exitdiamonddown
         		add 	$a1, $zero, $s1
         		add 	$a2, $zero, $s2
