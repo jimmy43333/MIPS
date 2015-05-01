@@ -97,6 +97,6 @@ function:     # a0 is B
 		jr		$ra
 		
 		.data
-printout1:  .ascliz "Input:\n"
-printout2:  .ascliz "Output:\n"
+printout1:  .asciiz "Input:\n"
+printout2:  .asciiz "Output:\n"
 	
