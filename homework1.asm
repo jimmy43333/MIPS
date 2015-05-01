@@ -26,10 +26,10 @@ main:
   
 diamond:
  	addi	$sp,$sp,-16
- 	sw	$ra, 0($sp)
- 	sw	$s0, 4($sp)
- 	sw	$s1, 8($sp)
- 	sw	$s2, 12($sp)
+ 	sw	$ra, 12($sp)
+ 	sw	$s0, 0($sp)
+ 	sw	$s1, 4($sp)
+ 	sw	$s2, 8($sp)
  	
  	li	$s0, -1         
  	add	$s1,$zero,$a0      #s1 is space number  
@@ -66,10 +66,10 @@ diamond:
 
 triangle:
 	addi	$sp, $sp, -16		# $a0 is input n
-	sw	$ra, 0($sp)
-	sw	$s0, 4($sp)
-	sw	$s1, 8($sp)
-	sw	$s2, 12($sp)
+	sw	$ra, 12($sp)
+	sw	$s0, 0($sp)
+	sw	$s1, 4($sp)
+	sw	$s2, 8($sp)
 	
 	li	$s0, -1         
  	add	$s1,$zero,$a0      # s1 is space number  
@@ -97,10 +97,10 @@ triangle:
 
 trapezoid:
 	addi	$sp, $sp, -16	 # a0 is input
-	sw	$ra, 0($sp)
-	sw	$s0, 4($sp)
-	sw	$s1, 8($sp)
-	sw	$s2, 12($sp)
+	sw	$ra, 12($sp)
+	sw	$s0, 0($sp)
+	sw	$s1, 4($sp)
+	sw	$s2, 8($sp)
 	
 	li 	$s0, -1
 	add 	$s1, $zero, $a0
@@ -162,6 +162,6 @@ starandspace:
 .data
 printout1: .ascliz "Input:\n"
 printout2: .ascliz "Output:\n"
-space:	.ascliz "_"
+space:	.ascliz " "
 star:	.ascliz "*"
 lf:	.ascliz "\n"
