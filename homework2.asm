@@ -22,12 +22,12 @@ main:
 	la		$a0, printout2
 	syscall
 
-	beq		$s1, $zero, true
-	add		$a0, $zero, $s1
+	beq		$s0, $zero, true
+	add		$a0, $zero, $s0
 	jal		function
-	add $s2, $zero, $v0
+	add 		$s2, $zero, $v0
 	div		$s2, $s7
-	mfhi	$a0
+	mfhi		$a0
 	j		false
 
 true:	li		$a0, 1
