@@ -33,11 +33,6 @@ main:
 true:	li		$a0, 1
 false:	li		$v0, 1
 	syscall
-	#srl		$s1, $s0, 1
-	#sll		$s1, $s1, 1
-	#li		$v0, 1
-	#add		$a0, $zero, $s1
-	#syscall
 	li		$v0, 10
 	syscall
 	  
