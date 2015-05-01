@@ -32,7 +32,7 @@ diamond:
  	sw	$s2, 8($sp)
  	
  	li	$s0, -1         
- 	add	$s1,$zero,$a0      #s1 is space number  
+ 	add	$s1,$zero,$a0       #s1 is space number  
  	li	$s2, 1              #s2 is star number
  	add	$a1,$zero,$s2
  	
@@ -142,12 +142,12 @@ starandspace:
 			syscall
 			addi	$s1,$s1,-1
 			j	printspace
-	exit1:		li	$s2, 0
+	exit1:		li	$s0, 0
 	printstar:	beq	$s2, $zero, exit2
 			li	$v0, 4
 			la	$a0, star
 			syscall
-			addi	$s1, $s1, -1
+			addi	$s2, $s2, -1
 			j	printstar
 	exit2:		li	$v0, 4
 			la	$a0, lf
